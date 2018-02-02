@@ -1,8 +1,7 @@
 function task()
     local pin = 4
-    local status,temp,humi,temp_dec,humi_dec=dht.read11(pin)
-    local str = string.format("温度:%d.%02d 湿度:%d.%02d", temp, temp_dec, humi, humi_dec)
+    local status,temp,humi=dht.read(pin)
+    local str = string.format("当前温度:%f 湿度:%f", temp, humi)
     print(str)
 end
-
 tmr.create():alarm(5000, tmr.ALARM_AUTO, task)
